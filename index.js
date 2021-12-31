@@ -5,8 +5,8 @@ const helmet = require("helmet");
 const morgan = require("morgan");
 const cors = require("cors");
 
-const AuthRoute = require("./routes/auth.route");
-const HomeRoute = require("./routes/home.route");
+const authRoute = require("./routes/auth.route");
+const homeRoute = require("./routes/home.route");
 const pizzasRoute = require("./routes/pizzas.route");
 const ordersRoute = require("./routes/orders.route");
 const usersRoute = require("./routes/users.route");
@@ -29,7 +29,7 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.use("/auth", AuthRoute);
+app.use("/auth", authRoute);
 
 app.use("/users", usersRoute);
 
@@ -37,6 +37,6 @@ app.use("/pizzas", pizzasRoute);
 
 app.use("/orders", ordersRoute);
 
-app.use("/", HomeRoute);
+app.use("/", homeRoute);
 
 app.listen(process.env.PORT || 3001);
